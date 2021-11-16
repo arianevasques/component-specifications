@@ -13,7 +13,7 @@ div {
     padding: 24px 16px 24px 16px;
     position: absolute;
     background: #FFFFFF;
-
+    
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -21,7 +21,7 @@ div {
 
 
 .specifications {
-
+    
 }
 .specifications h2 {
     font-size: 20px;
@@ -55,12 +55,44 @@ table {
 table tr:nth-child(odd) { /* pseudo seletor */
     background-color: #F3F9FF;
 }
-table td {
+
+
+/*mobile first*/
+table td { /*mobile*/
+    display: flex;
+    flex-direction: column;
+}
+@media (min-width: 769px) { /*desktop*/
+    table td {
+        flex-direction: row;
+    }
+}
+
+/*desktop-first*/
+table td span { /*desktop*/
+    width: 50%;
     padding: 12px 16px 12px 16px;
 }
-table td span {
-    display:block;
+@media (max-width: 768px) { /*mobile*/
+    table td span {
+        width: 100%;
+    }
 }
-span:first-child {
+
+
+table td span:first-child {
     color: #717786;
+    border-right: 4px solid #FFFFFF;
+}
+@media (max-width: 768px) {
+    table td span:first-child {
+        border-right: 0;
+        padding-bottom: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    table td span:last-child {
+        padding-top: 0;
+    }
 }
